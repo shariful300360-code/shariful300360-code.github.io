@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content="Lalon Shai (c. 1774–1890), the Baul saint of Cheuriya, Kushtia — his life, his philosophy of the Man of the Heart, and the songs of the Lalon Geeti. Book a Lalon local guide for Cheuriya, Shilaidaha and Kushtia sightseeing." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#b34a0c" />
@@ -93,7 +93,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Serif+Bengali:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
     <style>
       :root {
-        color-scheme: light;
+        color-scheme: light dark;
         --paper: #ffffff;
         --paper-deep: #efdcae;
         --card: #fffdf4;
@@ -110,6 +110,24 @@
         --shrine-ink: #f3e7cd;
       }
       
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #000000;
+          --paper-deep: #050505;
+          --card: #0a0a0a;
+          --ink: #f2e4c4;
+          --ink-soft: #cda972;
+          --accent: #f08c3c;
+          --accent-soft: #eda87e;
+          --ochre: #e8b13c;
+          --turmeric: #e8b13c;
+          --madder: #e0684f;
+          --indigo: #93a9cf;
+          --line: #4d3517;
+          --shrine-band: #000000;
+          --shrine-ink: #f3e7cd;
+        }
+      }
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       @media (prefers-reduced-motion: reduce) {
@@ -623,8 +641,6 @@
         <li><a href="#visit">Visit</a></li>
       </ul>
     </nav>
-    <div class="patchwork" aria-hidden="true"></div>
-
     <div class="wrap">
       <!-- ================= HERO ================= -->
       <header class="hero">
