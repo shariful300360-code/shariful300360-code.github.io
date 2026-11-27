@@ -484,7 +484,7 @@
       .contact-block h3 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.35rem; }
       .contact-block > p { color: var(--ink-soft); margin: 0; }
       .contact-rows { display: grid; gap: 1.1rem; grid-template-columns: 1fr; margin: 1.1rem 0 0; }
-      @media (min-width: 40rem) { .contact-rows { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 40rem) { .contact-rows { grid-template-columns: 1fr; } }
       .contact-rows dt {
         font-family: "Cormorant Garamond", serif; font-weight: 700;
         text-transform: uppercase; letter-spacing: 0.13em; font-size: 0.82rem;
@@ -616,6 +616,10 @@
       img { height: auto; }
       figure img { height: auto; }
       .art-fig img, .band figure img, .legacy-grid figure img, .guide-grid figure img, .book-head figure img { height: auto; object-fit: contain; }
+    
+      /* booking buttons: same stacked layout as mobile, on PC too */
+      #bookingView .btn-row { flex-direction: column; align-items: stretch; max-width: 27rem; }
+      #bookingView .btn-row a { justify-content: center; }
     </style>
   </head>
   <body>
@@ -4011,7 +4015,7 @@
           <dl class="contact-rows">
             <div>
               <dt>Email · ইমেইল</dt>
-              <dd><a href="mailto:nilnirob34@gmail.com">nilnirob34@gmail.com</a></dd>
+              <dd><a href="https://mail.google.com/mail/?view=cm&fs=1&to=nilnirob34@gmail.com" target="_blank" rel="noopener">nilnirob34@gmail.com</a></dd>
             </div>
             <div>
               <dt>Phone · ফোন</dt>
@@ -4061,7 +4065,7 @@
             </div>
             <div class="btn-row">
               <a class="btn-wa" href="https://wa.me/8801711198545?text=Hello%2C%20I%20would%20like%20to%20book%20the%20full-day%20Lalon%20tour%20(%24150%2Fday)." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Ask on WhatsApp</a>
-              <a class="btn-book" href="mailto:nilnirob34@gmail.com?subject=Full-Day%20Lalon%20Tour%20Booking">Book by Email</a>
+              <a class="btn-book" href="https://mail.google.com/mail/?view=cm&fs=1&to=nilnirob34@gmail.com&su=Full-Day%20Lalon%20Tour%20Booking" target="_blank" rel="noopener">Book by Email</a>
             </div>
           </div>
           <figure class="art-fig">
@@ -4189,7 +4193,7 @@
             </div>
             <button type="submit" class="btn-wa"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Send Booking Request on WhatsApp</button>
             <div class="book-msg" id="bookMsg" hidden></div>
-            <p class="book-alt">Prefer email? Write to <a href="mailto:nilnirob34@gmail.com?subject=Full-Day%20Lalon%20Tour%20Booking">nilnirob34@gmail.com</a> with your date and group size — or call <a href="tel:+8801711198545">+880 1711-198545</a>.</p>
+            <p class="book-alt">Prefer email? Write to <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nilnirob34@gmail.com&su=Full-Day%20Lalon%20Tour%20Booking" target="_blank" rel="noopener">nilnirob34@gmail.com</a> with your date and group size — or call <a href="tel:+8801711198545">+880 1711-198545</a>.</p>
           </form>
           <p style="margin-top:2.5rem;"><a class="back-link" href="#visit">← Back to the Lalon Shai site</a></p>
         </section>
