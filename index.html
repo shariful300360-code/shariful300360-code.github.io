@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <meta name="description" content="Lalon Shai (c. 1774–1890), the Baul saint of Cheuriya, Kushtia — his life, his philosophy of the Man of the Heart, and the songs of the Lalon Geeti. Book a Lalon local guide for Cheuriya, Shilaidaha and Kushtia sightseeing." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#b34a0c" />
@@ -93,7 +93,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Serif+Bengali:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
     <style>
       :root {
-        color-scheme: light dark;
+        color-scheme: light;
         --paper: #ffffff;
         --paper-deep: #efdcae;
         --card: #fffdf4;
@@ -110,24 +110,24 @@
         --shrine-ink: #f3e7cd;
       }
       
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --paper: #000000;
-          --paper-deep: #050505;
-          --card: #0a0a0a;
-          --ink: #f2e4c4;
-          --ink-soft: #cda972;
-          --accent: #f08c3c;
-          --accent-soft: #eda87e;
-          --ochre: #e8b13c;
-          --turmeric: #e8b13c;
-          --madder: #e0684f;
-          --indigo: #93a9cf;
-          --line: #4d3517;
-          --shrine-band: #000000;
-          --shrine-ink: #f3e7cd;
-        }
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --paper: #000000;
+        --paper-deep: #050505;
+        --card: #0a0a0a;
+        --ink: #f2e4c4;
+        --ink-soft: #cda972;
+        --accent: #f08c3c;
+        --accent-soft: #eda87e;
+        --ochre: #e8b13c;
+        --turmeric: #e8b13c;
+        --madder: #e0684f;
+        --indigo: #93a9cf;
+        --line: #4d3517;
+        --shrine-band: #000000;
+        --shrine-ink: #f3e7cd;
       }
+      
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       @media (prefers-reduced-motion: reduce) {
@@ -627,8 +627,19 @@
       .hero-mark { justify-content: center; }
       .hero .intro, .hero-quote { margin-left: auto; margin-right: auto; }
       .hero-sketch { display: block; margin-left: auto; margin-right: auto; }
+
+      /* Theme toggle (Nirob, 2026-11-28) */
+      nav.topnav li.theme-li { margin-left: auto; }
+      .theme-toggle {
+        font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem;
+        letter-spacing: 0.04em; color: var(--ink); background: transparent;
+        border: 1px solid var(--line); border-radius: 999px; padding: 0.32rem 0.85rem;
+        cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.2rem;
+      }
+      .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 </style>
-  </head>
+  <script>try { if (localStorage.getItem('lalon-theme') === 'dark') { document.documentElement.dataset.theme = 'dark'; } } catch (e) {}</script>
+    </head>
   <body>
     <nav class="topnav" aria-label="Sections">
       <ul>
@@ -639,6 +650,7 @@
         <li><a href="#legacy">Legacy</a></li>
         <li><a href="#library">Library</a></li>
         <li><a href="#visit">Visit</a></li>
+        <li class="theme-li"><button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode"><span aria-hidden="true">\u263e</span> Dark</button></li>
       </ul>
     </nav>
     <div class="wrap">
@@ -6991,6 +7003,26 @@
             msg.appendChild(p2);
           }
         });
+      })();
+    </script>
+  
+    <script>
+      (function () {
+        var btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        function sync() {
+          var dark = document.documentElement.dataset.theme === 'dark';
+          btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+          btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+          btn.innerHTML = dark ? '<span aria-hidden="true">\u2600</span> Light' : '<span aria-hidden="true">\u263e</span> Dark';
+        }
+        btn.addEventListener('click', function () {
+          var dark = document.documentElement.dataset.theme === 'dark';
+          if (dark) { delete document.documentElement.dataset.theme; } else { document.documentElement.dataset.theme = 'dark'; }
+          try { localStorage.setItem('lalon-theme', dark ? 'light' : 'dark'); } catch (e) {}
+          sync();
+        });
+        sync();
       })();
     </script>
   </body>
